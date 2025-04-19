@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -23,4 +23,31 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+* {
+  margin: 0;
+  padding: 0;
+}
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
+.main-nav ul li {
+  margin: 0 45px;
+  list-style: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 2rem;
+  color: black;
+  text-decoration: none;
+}
+.title {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 5rem;
+}
+.descriptiom {
+  text-align: center;
+  margin-top: 1rem;
 }
