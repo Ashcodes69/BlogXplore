@@ -1,0 +1,14 @@
+.blogtitle{
+ cursor: pointer;
+
+}
+.blogSubtitle{
+  cursor: default;
+}
+.titleLink{
+  color: black;
+  text-decoration: none;
+}
+.titleLink:hover{
+  color: #6610f2;
+}

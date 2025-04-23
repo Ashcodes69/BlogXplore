@@ -6,6 +6,9 @@ function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
+          <Link className="navbar-brand" href="/">
+            BlogXplore
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -17,9 +20,7 @@ function Navbar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <Link className="navbar-brand" href="/">
-            BlogXplore
-          </Link>
+
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
@@ -28,24 +29,34 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/blogs" className="nav-link active" aria-current="page">
+                <Link
+                  href="/blogs"
+                  className="nav-link active"
+                  aria-current="page"
+                >
                   Blogs
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/about" className="nav-link active" aria-current="page">
+                <Link
+                  href="/about"
+                  className="nav-link active"
+                  aria-current="page"
+                >
                   About
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/contact" className="nav-link active" aria-current="page">
+                <Link
+                  href="/contact"
+                  className="nav-link active"
+                  aria-current="page"
+                >
                   Contact
                 </Link>
-              </li>             
+              </li>
             </ul>
           </div>
-          {/* just to center the main logo in phone     */}
-          <div></div>      
         </div>
       </nav>
     </div>
