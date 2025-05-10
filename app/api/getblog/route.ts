@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+
 // url = http://localhost:3000/api/getblog?slug=how-to-learn-js
+
 export async function GET(req: Request) {
   try {
     const url = new URL(req.url);

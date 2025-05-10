@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
+import fs, { readdirSync } from "fs";
 import path from "path";
+
+// url = http://localhost:3000/api/blogs
 
 export async function GET() {
   try {
