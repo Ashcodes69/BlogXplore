@@ -30,7 +30,7 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <Link
-                  href="/blogs"
+                  href="/blog"
                   className="nav-link active"
                   aria-current="page"
                 >

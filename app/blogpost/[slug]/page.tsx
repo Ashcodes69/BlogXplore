@@ -1,8 +1,5 @@
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
-  const { slug } = await params
-  return <div><h2>My Post: {slug}</h2></div>
+import BlogClient from './BlogClient';
+
+export default function Page({ params }: { params: { slug: string } }) {
+  return <BlogClient slug={params.slug} />;
 }

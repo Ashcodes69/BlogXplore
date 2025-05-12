@@ -9,16 +9,15 @@ function Blogs() {
     title: string;
     author: string;
     content: string;
+    slug: string;
   };
   const [blogs, setBlogs] = useState<Blog[]>([]);
   useEffect(() => {
-    console.log("useeffect is running");
     fetch("http://localhost:3000/api/blogs")
       .then((data) => {
         return data.json();
       })
       .then((parsed) => {
-        console.log(parsed);
         setBlogs(parsed);
       });
   }, []);
@@ -37,13 +36,14 @@ function Blogs() {
                 <h5 className={`card-title ${style.blogtitle}`}>
                   <Link
                     className={style.titleLink}
-                    href={"/blogpost/learn-javascript"}
+                    href={`/blogpost/${blogitem.slug}`}
                   >
-                    {" "}
                     {blogitem.title}
                   </Link>
                 </h5>
-                <p className="card-text">{blogitem.content}</p>
+                <p className="card-text">
+                  {blogitem.content.substring(0, 150)}...
+                </p>
               </div>
             </div>
           </div>
