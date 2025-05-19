@@ -1,26 +1,30 @@
-'use client';
+import { notFound } from "next/navigation";
 
-import { useEffect, useState } from 'react';
+type Blog = {
+  title: string;
+  content: string;
+};
 
-export default function BlogClient({ slug }: { slug: string }) {
-  const [blog, setBlog] = useState<{ title: string; content: string } | null>(null);
+async function getBlog(slug: string): Promise<Blog | null> {
+  try {
+    const res = await fetch(`http://localhost:3000/api/getblog?slug=${slug}`, {
+      cache: "no-store", 
+    });
+    if (!res.ok) return null;
+    return res.json();
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+}
 
-  useEffect(() => {
-    if (!slug) return;
+export default async function BlogClient({ slug }: { slug: string }) {
+  const blog = await getBlog(slug);
 
-    fetch(`http://localhost:3000/api/getblog?slug=${slug}`)
-      .then((res) => res.json())
-      .then((data) => setBlog(data))
-      .catch((err) => {
-        console.log(err)
-        setBlog(null);
-      });
-  }, [slug]);
-
-  if (!blog) return <p>Loading...</p>;
+  if (!blog) return notFound();
 
   return (
-    <div className='container'>
+    <div className="container">
       <h2>{blog.title}</h2>
       <p>{blog.content}</p>
     </div>
