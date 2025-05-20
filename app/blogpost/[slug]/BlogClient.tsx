@@ -4,6 +4,9 @@ type Blog = {
   title: string;
   content: string;
 };
+function createMarkup(content: string) {
+  return { __html: content };
+}
 
 async function getBlog(slug: string): Promise<Blog | null> {
   try {
@@ -22,11 +25,10 @@ export default async function BlogClient({ slug }: { slug: string }) {
   const blog = await getBlog(slug);
 
   if (!blog) return notFound();
-
-  return (
+    return (
     <div className="container">
       <h2>{blog.title}</h2>
-      <p>{blog.content}</p>
+   <div dangerouslySetInnerHTML={createMarkup(blog.content)} />
     </div>
   );
 }

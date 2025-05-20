@@ -7,6 +7,7 @@ type Blog = {
   author: string;
   content: string;
   slug: string;
+  metadesc:string;
 };
 
 async function getBlogs(): Promise<Blog[]> {
@@ -44,7 +45,7 @@ export default async function BlogsPage() {
                 </Link>
               </h5>
               <p className="card-text">
-                {blogitem.content.substring(0, 150)}...
+                {blogitem.metadesc.substring(0, 150)}...
               </p>
             </div>
           </div>
