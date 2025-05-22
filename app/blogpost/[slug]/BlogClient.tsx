@@ -14,7 +14,7 @@ async function getBlog(slug: string): Promise<Blog | null> {
       cache: "no-store", 
     });
     if (!res.ok) return null;
-    return res.json();
+    return res.json();  
   } catch (err) {
     console.error(err);
     return null;
